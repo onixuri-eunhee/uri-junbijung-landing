@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우리 준비중 — 결혼 준비, 둘이서 함께</title>
+<meta name="description" content="흩어진 결혼 준비를 하나로. 드레스 스케치 카드, 견적 비교, 커플 실시간 공유. 3,000만원짜리 결혼 준비를 실수 없이.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="우리 준비중 — 결혼 준비, 둘이서 함께">
+<meta property="og:description" content="드레스샵 견적이 카톡에, 예식장 메모는 메모앱에. 흩어진 결혼 준비를 처음으로 하나로 모읍니다.">
+<meta property="og:url" content="https://uri-junbijung.vercel.app">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#FAF7F2;--warm:#F2EBE0;--rose:#C9947A;--rl:#E8C5B5;--brown:#6B4F3A;--dark:#2C1F14;--gray:#9A8E85;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:18px 48px;background:rgba(250,247,242,0.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,148,122,0.15);}
+.logo{font-family:'DM Serif Display',serif;font-size:22px;color:var(--brown);}
+.ncta{background:var(--rose);color:#fff;border:none;padding:10px 24px;border-radius:100px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden;}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 20%,rgba(232,197,181,.3),transparent 60%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(201,148,122,.2),transparent 60%);}
+.htag{font-size:11px;letter-spacing:.2em;color:var(--rose);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fu .8s ease .2s forwards;}
+.ht{font-family:'DM Serif Display',serif;font-size:clamp(44px,8vw,88px);line-height:1.05;color:var(--dark);margin-bottom:16px;opacity:0;animation:fu .8s ease .4s forwards;}
+.ht em{font-style:italic;color:var(--rose);}
+.hs{font-family:'Noto Serif KR',serif;font-size:clamp(19px,3vw,32px);font-weight:300;color:var(--brown);margin-bottom:24px;opacity:0;animation:fu .8s ease .5s forwards;}
+.hd{font-size:15px;color:var(--gray);line-height:1.9;max-width:460px;font-weight:300;margin-bottom:48px;opacity:0;animation:fu .8s ease .6s forwards;}
+.hcw{display:flex;flex-direction:column;align-items:center;gap:13px;opacity:0;animation:fu .8s ease .8s forwards;}
+.ef{display:flex;border-radius:100px;overflow:hidden;box-shadow:0 8px 40px rgba(107,79,58,.15);background:#fff;}
+.ei{border:none;outline:none;padding:15px 22px;font-size:14px;font-family:'Noto Sans KR',sans-serif;color:var(--dark);background:transparent;width:252px;}
+.ei::placeholder{color:var(--gray);}
+.eb{background:var(--rose);color:#fff;border:none;padding:15px 26px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;}
+.hn{font-size:12px;color:var(--gray);font-weight:300;}
+.sm{display:none;color:var(--rose);font-size:14px;}.sm.on{display:block;}
+.sl{text-align:center;font-size:11px;letter-spacing:.2em;color:var(--rose);text-transform:uppercase;margin-bottom:18px;}
+.st{font-family:'DM Serif Display',serif;font-size:clamp(28px,5vw,48px);text-align:center;color:var(--dark);margin-bottom:13px;}
+.sd{text-align:center;font-size:15px;color:var(--gray);font-weight:300;max-width:480px;margin:0 auto 56px;line-height:1.8;}
+/* PAIN */
+.pain{padding:100px 24px;max-width:740px;margin:0 auto;text-align:center;}
+.pq{font-family:'Noto Serif KR',serif;font-size:clamp(18px,3vw,28px);font-weight:300;line-height:1.9;color:var(--brown);margin-bottom:44px;}
+.pq strong{font-weight:600;color:var(--rose);}
+.pl{list-style:none;display:flex;flex-direction:column;gap:13px;text-align:left;max-width:520px;margin:0 auto;}
+.pi{display:flex;align-items:flex-start;gap:13px;padding:15px 18px;background:#fff;border-radius:14px;border:1px solid rgba(201,148,122,.15);box-shadow:0 2px 14px rgba(107,79,58,.05);}
+.pt{font-size:14px;color:var(--dark);line-height:1.7;font-weight:300;}
+/* FEATURES */
+.feats{padding:100px 24px;background:var(--warm);}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:1100px;margin:0 auto;}
+.fc{background:#fff;border-radius:22px;padding:28px 22px;border:1px solid rgba(201,148,122,.12);transition:transform .3s,box-shadow .3s;}
+.fc:hover{transform:translateY(-5px);box-shadow:0 16px 50px rgba(107,79,58,.1);}
+.fi{width:46px;height:46px;background:var(--cream);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:15px;}
+.fn{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:600;color:var(--dark);margin-bottom:8px;}
+.fd{font-size:13px;color:var(--gray);line-height:1.8;font-weight:300;}
+.fc-new{border-color:rgba(201,148,122,.35);background:linear-gradient(135deg,#fff 78%,#FAF0EC);}
+.fbadge{display:inline-block;background:var(--rose);color:#fff;font-size:10px;padding:2px 10px;border-radius:100px;margin-bottom:10px;}
+.fc-mem{background:linear-gradient(135deg,#fff 70%,#F5F0FA);border-color:rgba(160,140,200,.28);}
+.fc-mem .fi{background:#F0EBF8;}
+/* SKETCH */
+.skw{padding:100px 24px;background:#fff;}
+.tb{background:var(--cream);border:1.5px solid rgba(201,148,122,.25);border-radius:100px;padding:7px 18px;font-size:12px;font-family:'Noto Sans KR',sans-serif;color:var(--brown);cursor:pointer;transition:all .2s;}
+.tb.on{background:var(--rose);color:#fff;border-color:var(--rose);}
+.cb{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:transform .2s;flex-shrink:0;}
+.cb:hover{transform:scale(1.2);}
+.cb.on{border-color:var(--rose);transform:scale(1.15);}
+.rb{background:var(--cream);border:1.5px solid rgba(201,148,122,.2);border-radius:100px;padding:6px 12px;font-size:11px;font-family:'Noto Sans KR',sans-serif;color:var(--gray);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.rb.on{background:#FFF0EB;color:var(--rose);border-color:var(--rose);}
+.starb{background:none;border:none;font-size:18px;cursor:pointer;color:#EDD5C8;transition:color .1s,transform .1s;padding:1px;}
+.starb:hover,.starb.on{color:var(--rose);}
+.starb:hover{transform:scale(1.15);}
+.sc{min-width:158px;background:#fff;border-radius:18px;padding:13px;border:1px solid rgba(201,148,122,.15);flex-shrink:0;transition:transform .2s;cursor:pointer;}
+.sc:hover{transform:translateY(-3px);}
+.sc.best{border:2px solid var(--rose);box-shadow:0 4px 20px rgba(201,148,122,.15);}
+.chip{background:#fff;border:1px solid rgba(201,148,122,.25);border-radius:100px;padding:4px 11px;font-size:11px;font-family:'Noto Sans KR',sans-serif;color:var(--gray);cursor:pointer;transition:all .2s;margin-bottom:4px;white-space:nowrap;}
+.chip.on{background:#FFF0EB;color:var(--rose);border-color:var(--rose);}
+.rrow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(201,148,122,.1);}
+.rrow:last-child{border:none;}
+@keyframes fu{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:640px){nav{padding:16px 18px;}.ef{flex-direction:column;border-radius:14px;}.ei{width:100%;}.eb{border-radius:0 0 14px 14px;}.sl2{flex-direction:column !important;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">우리 준비중 💍</div>
+  <button class="ncta" onclick="document.getElementById('cta1').scrollIntoView({behavior:'smooth'})">무료로 시작하기</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hbg"></div>
+  <div style="position:relative;z-index:1;">
+    <p class="htag">결혼 준비 커플을 위한 공유 앱</p>
+    <h1 class="ht">Our <em>Journey</em></h1>
+    <p class="hs">둘이서, 함께, 기록하다</p>
+    <p class="hd">드레스샵 견적이 카톡에, 예식장 메모는 메모앱에.<br>흩어진 결혼 준비를 처음으로 하나로 모읍니다.</p>
+    <div class="hcw" id="cta1">
+      <div class="ef">
+        <input class="ei" type="email" placeholder="이메일 주소를 입력해주세요" id="e1">
+        <button class="eb" onclick="signup('e1','sm1')">출시 알림받기 →</button>
+      </div>
+      <p class="hn">현재 베타 신청 중 · 출시 시 가장 먼저 알려드립니다</p>
+      <p class="sm" id="sm1">💌 감사합니다! 가장 먼저 전해드릴게요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <p class="pq">결혼 준비 중<br><strong>이런 순간</strong>이 있으셨나요?</p>
+  <ul class="pl">
+    <li class="pi"><span style="font-size:18px;flex-shrink:0;margin-top:1px;">😤</span><span class="pt">"드레스샵 A가 얼마였더라? 카톡 한참 올려야 해..."</span></li>
+    <li class="pi"><span style="font-size:18px;flex-shrink:0;margin-top:1px;">📸</span><span class="pt">드레스샵에서 사진을 못 찍게 해서 종이 양식 출력해왔는데 집에서 못 알아보겠음</span></li>
+    <li class="pi"><span style="font-size:18px;flex-shrink:0;margin-top:1px;">💬</span><span class="pt">"남자친구한테 설명하기 귀찮아서 그냥 내가 결정했어"</span></li>
+    <li class="pi"><span style="font-size:18px;flex-shrink:0;margin-top:1px;">📋</span><span class="pt">엑셀로 직접 만들었는데 공유가 안 돼서 결국 포기</span></li>
+  </ul>
+</section>
+
+<!-- FEATURES -->
+<section class="feats">
+  <p class="sl">Features</p>
+  <h2 class="st">딱 필요한 것만</h2>
+  <p class="sd">결혼 준비 현장에서 진짜 필요한 것만 담았습니다.</p>
+  <div class="fg">
+
+    <div class="fc">
+      <div class="fi">📊</div>
+      <h3 class="fn">커플 공유 견적 보드</h3>
+      <p class="fd">드레스, 스튜디오, 예식장 견적을 한 눈에 비교. 링크 하나로 파트너와 실시간 공유.</p>
+    </div>
+
+    <!-- 그날의 기록 -->
+    <div class="fc fc-mem">
+      <div class="fi">🌸</div>
+      <h3 class="fn">그날의 기록</h3>
+      <p class="fd">드레스 피팅의 설렘, 예식장 계약날의 긴장감. 우리의 사진과 감정을 날짜별로 기록하는 커플만의 추억 일기.</p>
+      <div style="margin-top:14px;background:#EDE8F6;border-radius:11px;padding:11px 13px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;">
+          <span style="font-size:14px;">📷</span><span style="font-size:11px;color:#8270A8;font-weight:400;">사진 + 감정 메모 + 날짜</span>
+        </div>
+        <div style="display:flex;gap:5px;">
+          <div style="flex:1;height:42px;border-radius:8px;background:linear-gradient(135deg,#E8E2F4,#D8D0EC);display:flex;align-items:center;justify-content:center;font-size:18px;">🏛</div>
+          <div style="flex:1;height:42px;border-radius:8px;background:linear-gradient(135deg,#F0EDE8,#E8E0D8);display:flex;align-items:center;justify-content:center;font-size:18px;">👗</div>
+          <div style="flex:1;height:42px;border-radius:8px;background:linear-gradient(135deg,#EDF0E8,#E0EAD8);display:flex;align-items:center;justify-content:center;font-size:18px;">💐</div>
+        </div>
+        <p style="font-size:10px;color:#A090C0;margin-top:8px;line-height:1.5;">결혼 후에 다시 보면 눈물이 나요 🥺</p>
+      </div>
+    </div>
+
+    <div class="fc">
+      <div class="fi">📎</div>
+      <h3 class="fn">시안 파일 공유</h3>
+      <p class="fd">드레스 시안 PDF/PPT를 업로드하면 앱 안에서 바로 같이 볼 수 있어요.</p>
+    </div>
+
+    <div class="fc fc-new">
+      <span class="fbadge">✨ NEW</span>
+      <div class="fi" style="background:#FFF0EB;">✏️</div>
+      <h3 class="fn">드레스 스케치 카드</h3>
+      <p class="fd">사진 촬영 금지 샵에서도 OK. 패션 일러스트에 직접 그리고 항목별 평가까지. 종이 양식 출력 불필요.</p>
+    </div>
+
+    <div class="fc">
+      <div class="fi">✅</div>
+      <h3 class="fn">스마트 체크리스트</h3>
+      <p class="fd">단계별 할 일 관리, 완료하면 파트너에게 자동 알림.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DRESS SKETCH -->
+<section class="skw">
+  <p class="sl">신규 기능 체험하기</p>
+  <h2 class="st">사진 못 찍어도 괜찮아요</h2>
+  <p class="sd">종이 양식 출력은 이제 끝. 패션 일러스트에 직접 그리고 바로 공유하세요.</p>
+
+  <div style="max-width:960px;margin:0 auto;">
+    <div style="background:#fff;border-radius:28px;padding:28px;box-shadow:0 20px 80px rgba(107,79,58,.08);border:1px solid rgba(201,148,122,.15);">
+
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;flex-wrap:wrap;gap:10px;">
+        <div>
+          <p style="font-size:17px;font-family:'Noto Serif KR',serif;font-weight:600;color:var(--dark);">드레스 스케치 카드 ✏️</p>
+          <p style="font-size:12px;color:var(--gray);margin-top:3px;">패션 일러스트 위에 직접 그려보세요 (실제 작동 데모)</p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button onclick="clrCanvas()" style="background:var(--warm);border:none;border-radius:10px;padding:8px 16px;font-size:12px;color:var(--brown);cursor:pointer;font-family:'Noto Sans KR',sans-serif;">지우기</button>
+          <button onclick="saveSk()" style="background:var(--rose);border:none;border-radius:10px;padding:8px 18px;font-size:12px;color:#fff;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">저장하기 →</button>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
+        <input id="shopN" type="text" placeholder="샵 이름 (예: A 드레스샵)" style="flex:1;min-width:150px;border:1px solid rgba(201,148,122,.25);border-radius:10px;padding:9px 14px;font-size:13px;font-family:'Noto Sans KR',sans-serif;background:var(--cream);outline:none;color:var(--dark);">
+        <input id="dressN" type="text" placeholder="드레스 번호 (예: No.3)" style="flex:1;min-width:130px;border:1px solid rgba(201,148,122,.25);border-radius:10px;padding:9px 14px;font-size:13px;font-family:'Noto Sans KR',sans-serif;background:var(--cream);outline:none;color:var(--dark);">
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <p style="font-size:11px;color:var(--gray);margin-bottom:8px;">실루엣 템플릿</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="tb on" onclick="selTmpl(this,'aline')">A라인</button>
+          <button class="tb" onclick="selTmpl(this,'mermaid')">머메이드</button>
+          <button class="tb" onclick="selTmpl(this,'ball')">볼가운</button>
+          <button class="tb" onclick="selTmpl(this,'slim')">슬림라인</button>
+        </div>
+      </div>
+
+      <div class="sl2" style="display:flex;gap:22px;align-items:flex-start;">
+
+        <!-- 캔버스 영역 -->
+        <div style="flex:1.3;min-width:280px;">
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;flex-wrap:wrap;">
+            <span style="font-size:11px;color:var(--gray);">색상</span>
+            <div style="display:flex;gap:5px;align-items:center;">
+              <button class="cb on" onclick="setC(this,'#2C1F14')" style="background:#2C1F14;"></button>
+              <button class="cb" onclick="setC(this,'#C9947A')" style="background:#C9947A;"></button>
+              <button class="cb" onclick="setC(this,'#7090B8')" style="background:#7090B8;"></button>
+              <button class="cb" onclick="setC(this,'#A06868')" style="background:#A06868;"></button>
+              <button class="cb" onclick="setErase(this)" style="background:#fff;border:1.5px solid #E8C5B5;font-size:10px;display:flex;align-items:center;justify-content:center;" title="지우개">✕</button>
+            </div>
+            <span style="font-size:11px;color:var(--gray);">굵기</span>
+            <input type="range" id="bsz" min="1" max="14" value="2" style="width:68px;accent-color:var(--rose);">
+            <button onclick="undoDraw()" style="background:var(--warm);border:none;border-radius:8px;padding:5px 12px;font-size:11px;color:var(--brown);cursor:pointer;font-family:'Noto Sans KR',sans-serif;">↩ 되돌리기</button>
+          </div>
+
+          <!-- SVG 일러스트 + 드로잉 캔버스 -->
+          <div id="cWrap" style="position:relative;border:1px solid rgba(201,148,122,.2);border-radius:14px;overflow:hidden;background:#FAFAFA;line-height:0;">
+            <svg id="illust" viewBox="0 0 600 540" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;pointer-events:none;">
+
+              <!-- ===== FRONT (cx=148) ===== -->
+              <text x="148" y="14" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="11" fill="#C8AE9A" letter-spacing="1.5">Front</text>
+
+              <!-- 머리 -->
+              <ellipse cx="148" cy="40" rx="19" ry="23" fill="none" stroke="#2C1F14" stroke-width="1.15"/>
+              <!-- 헤어 - 앞머리/옆머리 -->
+              <path d="M133,25 Q140,12 152,13 Q164,14 165,26" fill="none" stroke="#2C1F14" stroke-width="1.1"/>
+              <!-- 헤어 번 (왼쪽 사이드 업스타일) -->
+              <ellipse cx="167" cy="31" rx="12" ry="9" fill="#2C1F14" opacity="0.88"/>
+              <path d="M158,27 Q164,20 172,24 Q174,28 170,33" fill="none" stroke="#5A3A26" stroke-width="0.9"/>
+              <!-- 귀 -->
+              <ellipse cx="129" cy="42" rx="4" ry="5.5" fill="none" stroke="#2C1F14" stroke-width="0.9"/>
+              <!-- 목 -->
+              <path d="M140,62 L138,80" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <path d="M156,62 L158,80" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <!-- 어깨 -->
+              <path d="M138,80 Q120,84 102,93" fill="none" stroke="#2C1F14" stroke-width="1.1"/>
+              <path d="M158,80 Q176,84 194,93" fill="none" stroke="#2C1F14" stroke-width="1.1"/>
+              <!-- 팔 왼 -->
+              <path d="M102,93 Q94,122 96,166" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <path d="M111,96 Q105,124 107,168" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <!-- 팔 오 -->
+              <path d="M194,93 Q202,122 200,166" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <path d="M185,96 Q191,124 189,168" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <!-- 상체 좌 -->
+              <path d="M128,85 Q119,110 117,145 Q115,162 118,178" fill="none" stroke="#2C1F14" stroke-width="1.2"/>
+              <!-- 상체 우 -->
+              <path d="M168,85 Q177,110 179,145 Q181,162 178,178" fill="none" stroke="#2C1F14" stroke-width="1.2"/>
+              <!-- 네크라인 (스트레이트) -->
+              <path d="M118,94 Q148,103 178,94" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <!-- 허리 -->
+              <path d="M118,178 L178,178" fill="none" stroke="#2C1F14" stroke-width="0.9"/>
+              <!-- 센터 시접선 -->
+              <line x1="148" y1="94" x2="148" y2="178" stroke="#2C1F14" stroke-width="0.5" stroke-dasharray="4,5"/>
+              <!-- 가슴라인 -->
+              <path d="M120,108 Q135,114 148,112 Q161,114 176,108" fill="none" stroke="#2C1F14" stroke-width="0.7" stroke-dasharray="2,3"/>
+
+              <!-- A라인 스커트 앞 -->
+              <g id="sk-fl">
+                <path d="M118,178 Q95,222 66,308 Q44,372 28,520" fill="none" stroke="#2C1F14" stroke-width="1.3"/>
+                <path d="M178,178 Q201,222 230,308 Q252,372 268,520" fill="none" stroke="#2C1F14" stroke-width="1.3"/>
+                <line x1="28" y1="520" x2="268" y2="520" stroke="#2C1F14" stroke-width="1"/>
+                <!-- 폭 라인들 (연한 갈색) -->
+                <path d="M124,186 Q103,244 78,334 Q59,402 44,520" fill="none" stroke="#C8A898" stroke-width="0.75"/>
+                <path d="M130,182 Q111,240 88,330 Q71,398 58,520" fill="none" stroke="#C8A898" stroke-width="0.65"/>
+                <path d="M136,180 Q119,238 98,328 Q83,396 70,520" fill="none" stroke="#C8A898" stroke-width="0.65"/>
+                <path d="M148,179 Q148,238 148,330 Q148,398 148,520" fill="none" stroke="#C8A898" stroke-width="0.6"/>
+                <path d="M160,180 Q177,238 198,328 Q213,396 226,520" fill="none" stroke="#C8A898" stroke-width="0.65"/>
+                <path d="M166,182 Q185,240 208,330 Q225,398 238,520" fill="none" stroke="#C8A898" stroke-width="0.65"/>
+                <path d="M172,186 Q193,244 218,334 Q237,402 252,520" fill="none" stroke="#C8A898" stroke-width="0.75"/>
+              </g>
+
+              <!-- ===== BACK (cx=450) ===== -->
+              <text x="450" y="14" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="11" fill="#C8AE9A" letter-spacing="1.5">Back</text>
+
+              <!-- 머리 (뒤) -->
+              <ellipse cx="450" cy="40" rx="19" ry="23" fill="none" stroke="#2C1F14" stroke-width="1.15"/>
+              <!-- 뒤에서 보이는 머리 윤곽 -->
+              <path d="M434,24 Q442,12 454,13 Q466,14 466,26" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <!-- 업스타일 번 (뒤에서 중앙) - 훨씬 크고 명확하게 -->
+              <ellipse cx="450" cy="24" rx="15" ry="11" fill="#2C1F14" opacity="0.88"/>
+              <ellipse cx="450" cy="24" rx="9" ry="6" fill="none" stroke="#5A3A26" stroke-width="0.9"/>
+              <circle cx="450" cy="24" r="3.5" fill="none" stroke="#7A5A40" stroke-width="0.8"/>
+              <!-- 헤어 땋은 선 힌트 -->
+              <path d="M440,28 Q446,32 450,30 Q454,32 460,28" fill="none" stroke="#5A3A26" stroke-width="0.7"/>
+              <!-- 귀 (뒤) -->
+              <ellipse cx="431" cy="42" rx="4" ry="5.5" fill="none" stroke="#2C1F14" stroke-width="0.9"/>
+              <!-- 목 -->
+              <path d="M442,62 L440,80" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <path d="M458,62 L460,80" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <!-- 어깨 -->
+              <path d="M440,80 Q422,84 404,93" fill="none" stroke="#2C1F14" stroke-width="1.1"/>
+              <path d="M460,80 Q478,84 496,93" fill="none" stroke="#2C1F14" stroke-width="1.1"/>
+              <!-- 팔 왼 -->
+              <path d="M404,93 Q396,122 398,166" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <path d="M413,96 Q407,124 409,168" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <!-- 팔 오 -->
+              <path d="M496,93 Q504,122 502,166" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <path d="M487,96 Q493,124 491,168" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <!-- 상체 좌 -->
+              <path d="M430,85 Q421,110 419,145 Q417,162 420,178" fill="none" stroke="#2C1F14" stroke-width="1.2"/>
+              <!-- 상체 우 -->
+              <path d="M470,85 Q479,110 481,145 Q483,162 480,178" fill="none" stroke="#2C1F14" stroke-width="1.2"/>
+              <!-- 오픈백 라인 -->
+              <path d="M420,96 Q434,106 450,109 Q466,106 480,96" fill="none" stroke="#2C1F14" stroke-width="1"/>
+              <!-- 허리 -->
+              <path d="M420,178 L480,178" fill="none" stroke="#2C1F14" stroke-width="0.9"/>
+              <!-- 뒷 센터 시접 -->
+              <line x1="450" y1="96" x2="450" y2="178" stroke="#2C1F14" stroke-width="0.5" stroke-dasharray="4,5"/>
+              <!-- 등 허리 디테일 -->
+              <path d="M422,130 Q436,134 450,132 Q464,134 478,130" fill="none" stroke="#2C1F14" stroke-width="0.7" stroke-dasharray="2,3"/>
+
+              <!-- A라인 스커트 뒤 -->
+              <g id="sk-bl">
+                <path d="M420,178 Q397,222 368,308 Q346,372 330,520" fill="none" stroke="#2C1F14" stroke-width="1.3"/>
+                <path d="M480,178 Q503,222 532,308 Q554,372 570,520" fill="none" stroke="#2C1F14" stroke-width="1.3"/>
+                <line x1="330" y1="520" x2="570" y2="520" stroke="#2C1F14" stroke-width="1"/>
+                <!-- 트레인 힌트 -->
+                <path d="M330,520 Q384,534 430,530" fill="none" stroke="#2C1F14" stroke-width="0.9"/>
+                <path d="M570,520 Q532,534 510,530" fill="none" stroke="#2C1F14" stroke-width="0.9"/>
+                <!-- 폭 라인들 -->
+                <path d="M426,186 Q405,244 380,334 Q361,402 346,520" fill="none" stroke="#C8A898" stroke-width="0.75"/>
+                <path d="M432,182 Q413,240 390,330 Q373,398 360,520" fill="none" stroke="#C8A898" stroke-width="0.65"/>
+                <path d="M438,180 Q421,238 400,328 Q385,396 372,520" fill="none" stroke="#C8A898" stroke-width="0.65"/>
+                <path d="M450,179 Q450,238 450,330 Q450,398 450,520" fill="none" stroke="#C8A898" stroke-width="0.6"/>
+                <path d="M462,180 Q479,238 500,328 Q515,396 528,520" fill="none" stroke="#C8A898" stroke-width="0.65"/>
+                <path d="M468,182 Q487,240 510,330 Q527,398 540,520" fill="none" stroke="#C8A898" stroke-width="0.65"/>
+                <path d="M474,186 Q495,244 520,334 Q539,402 554,520" fill="none" stroke="#C8A898" stroke-width="0.75"/>
+              </g>
+
+              <!-- 중앙 구분선 -->
+              <line x1="300" y1="8" x2="300" y2="532" stroke="#E8D5C5" stroke-width="0.8" stroke-dasharray="5,9"/>
+            </svg>
+            <canvas id="dc" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:crosshair;touch-action:none;"></canvas>
+          </div>
+          <p style="font-size:11px;color:var(--gray);text-align:center;margin-top:8px;">앞면(Front) · 뒷면(Back) 위에 색, 레이스, 디테일을 자유롭게 그려보세요 ✏️</p>
+        </div>
+
+        <!-- 평가 패널 -->
+        <div style="flex:1;min-width:228px;display:flex;flex-direction:column;gap:12px;">
+
+          <div style="background:var(--cream);border-radius:16px;padding:15px;">
+            <p style="font-size:12px;color:var(--dark);margin-bottom:12px;">분위기 / 소재 / 컬러 / 라인</p>
+            <div style="margin-bottom:9px;"><p style="font-size:10px;color:var(--gray);margin-bottom:5px;">분위기</p><div id="mA" style="display:flex;gap:5px;flex-wrap:wrap;"></div></div>
+            <div style="margin-bottom:9px;"><p style="font-size:10px;color:var(--gray);margin-bottom:5px;">소재</p><div id="matA" style="display:flex;gap:5px;flex-wrap:wrap;"></div></div>
+            <div style="margin-bottom:9px;"><p style="font-size:10px;color:var(--gray);margin-bottom:5px;">컬러</p><div id="colA" style="display:flex;gap:5px;flex-wrap:wrap;"></div></div>
+            <div><p style="font-size:10px;color:var(--gray);margin-bottom:5px;">라인</p><div id="lineA" style="display:flex;gap:5px;flex-wrap:wrap;"></div></div>
+          </div>
+
+          <div style="background:var(--cream);border-radius:16px;padding:15px;">
+            <p style="font-size:12px;color:var(--dark);margin-bottom:11px;">항목별 평가</p>
+            <div id="rA"></div>
+            <div style="margin-top:11px;padding-top:11px;border-top:1px solid rgba(201,148,122,.2);display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:12px;color:var(--brown);">총점</span>
+              <span id="tot" style="font-size:20px;font-family:'DM Serif Display',serif;color:var(--rose);">—</span>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px;">
+            <div style="flex:1;background:var(--cream);border-radius:12px;padding:11px;">
+              <p style="font-size:10px;color:var(--gray);margin-bottom:5px;">추가금</p>
+              <input type="text" placeholder="+30만원" style="width:100%;border:none;background:transparent;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:var(--dark);outline:none;">
+            </div>
+            <div style="flex:1;background:var(--cream);border-radius:12px;padding:11px;">
+              <p style="font-size:10px;color:var(--gray);margin-bottom:7px;">홀딩</p>
+              <div style="display:flex;gap:12px;">
+                <label style="font-size:12px;color:var(--dark);cursor:pointer;display:flex;align-items:center;gap:4px;"><input type="radio" name="hld" style="accent-color:var(--rose);"> O</label>
+                <label style="font-size:12px;color:var(--dark);cursor:pointer;display:flex;align-items:center;gap:4px;"><input type="radio" name="hld" style="accent-color:var(--rose);"> X</label>
+              </div>
+            </div>
+          </div>
+
+          <textarea placeholder="비고 · 메모 (수선 가능 여부, 오버스커트 옵션 등...)" style="width:100%;border:1px solid rgba(201,148,122,.25);border-radius:12px;padding:10px 13px;font-size:13px;font-family:'Noto Sans KR',sans-serif;background:var(--cream);outline:none;color:var(--dark);resize:none;height:66px;line-height:1.7;"></textarea>
+
+          <div>
+            <p style="font-size:11px;color:var(--gray);margin-bottom:7px;">재방문 의향</p>
+            <div style="display:flex;gap:7px;flex-wrap:wrap;">
+              <button class="rb on" onclick="setRv(this)">💖 꼭 다시</button>
+              <button class="rb" onclick="setRv(this)">🤔 고민중</button>
+              <button class="rb" onclick="setRv(this)">🙅 패스</button>
+            </div>
+          </div>
+
+          <div style="background:linear-gradient(135deg,#FFF5F0,#FAF7F2);border-radius:13px;padding:13px;border:1px dashed rgba(201,148,122,.4);">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="font-size:20px;">💌</span>
+              <div>
+                <p style="font-size:13px;color:var(--dark);">저장하면 파트너에게 바로 공유</p>
+                <p style="font-size:11px;color:var(--gray);margin-top:2px;">민준님이 실시간으로 확인해요</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 저장 카드 -->
+    <div style="margin-top:22px;">
+      <p style="font-size:14px;color:var(--brown);margin-bottom:13px;">📋 오늘 방문한 드레스샵 <span style="color:var(--rose);">3곳</span></p>
+      <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;">
+
+        <!-- 카드 A: 미니 패션 일러스트 포함 -->
+        <div class="sc best">
+          <div style="background:#FAFAFA;border:1px solid rgba(201,148,122,.2);border-radius:10px;height:126px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;position:relative;overflow:hidden;">
+            <svg viewBox="40 10 80 200" width="56" height="110" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="80" cy="30" rx="11" ry="13" fill="none" stroke="#C9947A" stroke-width="1.1"/>
+              <ellipse cx="90" cy="22" rx="8" ry="6" fill="#C9947A" opacity="0.82"/>
+              <path d="M74,42 L73,52" stroke="#C9947A" stroke-width="1" fill="none"/>
+              <path d="M86,42 L87,52" stroke="#C9947A" stroke-width="1" fill="none"/>
+              <path d="M73,52 Q68,56 62,60" stroke="#C9947A" stroke-width="1" fill="none"/>
+              <path d="M87,52 Q92,56 98,60" stroke="#C9947A" stroke-width="1" fill="none"/>
+              <path d="M69,56 Q65,70 66,84 Q66,92 67,98" stroke="#C9947A" stroke-width="1.1" fill="none"/>
+              <path d="M91,56 Q95,70 94,84 Q94,92 93,98" stroke="#C9947A" stroke-width="1.1" fill="none"/>
+              <path d="M64,60 Q80,68 96,60" stroke="#C9947A" stroke-width="0.9" fill="none"/>
+              <path d="M67,98 Q54,126 44,196 L116,196 Q106,126 93,98Z" fill="rgba(201,148,122,.06)" stroke="#C9947A" stroke-width="1.1"/>
+              <path d="M70,108 Q60,136 52,196" stroke="#D4B4A0" stroke-width="0.6" fill="none"/>
+              <path d="M74,102 Q65,130 58,196" stroke="#D4B4A0" stroke-width="0.55" fill="none"/>
+              <path d="M80,100 Q80,130 80,196" stroke="#D4B4A0" stroke-width="0.55" fill="none"/>
+              <path d="M86,102 Q95,130 102,196" stroke="#D4B4A0" stroke-width="0.55" fill="none"/>
+              <path d="M90,108 Q100,136 108,196" stroke="#D4B4A0" stroke-width="0.6" fill="none"/>
+            </svg>
+            <span style="position:absolute;top:6px;right:6px;background:var(--rose);color:#fff;font-size:9px;padding:2px 7px;border-radius:100px;">1순위</span>
+          </div>
+          <p style="font-size:13px;color:var(--dark);">A 드레스샵</p>
+          <p style="font-size:11px;color:var(--gray);margin:3px 0 8px;">No.3 · A라인 · 청순</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;"><span style="color:var(--rose);font-size:11px;">★★★★☆</span><span style="font-size:10px;color:var(--rose);background:#FFF0EB;padding:2px 7px;border-radius:100px;">💖 재방문</span></div>
+        </div>
+
+        <!-- 카드 B: 머메이드 -->
+        <div class="sc">
+          <div style="background:#FAFAFA;border:1px solid rgba(201,148,122,.15);border-radius:10px;height:126px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;overflow:hidden;">
+            <svg viewBox="40 10 80 200" width="56" height="110" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="80" cy="30" rx="11" ry="13" fill="none" stroke="#8898B8" stroke-width="1.1"/>
+              <ellipse cx="80" cy="21" rx="9" ry="7" fill="#5A6A90" opacity="0.8"/>
+              <path d="M74,42 L73,52" stroke="#8898B8" stroke-width="1" fill="none"/>
+              <path d="M86,42 L87,52" stroke="#8898B8" stroke-width="1" fill="none"/>
+              <path d="M73,52 Q68,56 62,60" stroke="#8898B8" stroke-width="1" fill="none"/>
+              <path d="M87,52 Q92,56 98,60" stroke="#8898B8" stroke-width="1" fill="none"/>
+              <path d="M69,56 Q66,74 67,94 Q67,106 68,114" stroke="#8898B8" stroke-width="1.1" fill="none"/>
+              <path d="M91,56 Q94,74 93,94 Q93,106 92,114" stroke="#8898B8" stroke-width="1.1" fill="none"/>
+              <path d="M68,114 Q60,138 52,196" stroke="#8898B8" stroke-width="1.1" fill="none"/>
+              <path d="M92,114 Q100,138 108,196" stroke="#8898B8" stroke-width="1.1" fill="none"/>
+              <line x1="52" y1="196" x2="108" y2="196" stroke="#8898B8" stroke-width="1"/>
+              <path d="M67,88 L93,88" stroke="#A8B4C8" stroke-width="0.7" stroke-dasharray="2,3"/>
+              <path d="M67,112 L93,112" stroke="#A8B4C8" stroke-width="0.8"/>
+              <path d="M70,118 Q65,148 58,196" stroke="#A8B4C8" stroke-width="0.55" fill="none"/>
+              <path d="M90,118 Q95,148 102,196" stroke="#A8B4C8" stroke-width="0.55" fill="none"/>
+            </svg>
+          </div>
+          <p style="font-size:13px;color:var(--dark);">B 드레스샵</p>
+          <p style="font-size:11px;color:var(--gray);margin:3px 0 8px;">No.7 · 머메이드 · 고급</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;"><span style="color:var(--rose);font-size:11px;">★★★☆☆</span><span style="font-size:10px;color:var(--gray);background:var(--cream);padding:2px 7px;border-radius:100px;">🤔 고민중</span></div>
+        </div>
+
+        <!-- 카드 C: 볼가운 -->
+        <div class="sc">
+          <div style="background:#FAFAFA;border:1px solid rgba(201,148,122,.15);border-radius:10px;height:126px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;overflow:hidden;">
+            <svg viewBox="30 10 100 200" width="60" height="110" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="80" cy="30" rx="11" ry="13" fill="none" stroke="#A8A0A0" stroke-width="1.1"/>
+              <ellipse cx="80" cy="21" rx="9" ry="7" fill="#787070" opacity="0.8"/>
+              <path d="M74,42 L73,52" stroke="#A8A0A0" stroke-width="1" fill="none"/>
+              <path d="M86,42 L87,52" stroke="#A8A0A0" stroke-width="1" fill="none"/>
+              <path d="M73,52 Q68,56 62,60" stroke="#A8A0A0" stroke-width="1" fill="none"/>
+              <path d="M87,52 Q92,56 98,60" stroke="#A8A0A0" stroke-width="1" fill="none"/>
+              <path d="M69,56 Q66,70 67,84" stroke="#A8A0A0" stroke-width="1.1" fill="none"/>
+              <path d="M91,56 Q94,70 93,84" stroke="#A8A0A0" stroke-width="1.1" fill="none"/>
+              <path d="M67,84 Q46,108 36,196 L124,196 Q114,108 93,84Z" fill="rgba(168,160,160,.06)" stroke="#A8A0A0" stroke-width="1.1"/>
+              <path d="M68,92 Q54,118 46,196" stroke="#C0B8B8" stroke-width="0.6" fill="none"/>
+              <path d="M72,87 Q60,114 52,196" stroke="#C0B8B8" stroke-width="0.55" fill="none"/>
+              <path d="M80,86 Q80,114 80,196" stroke="#C0B8B8" stroke-width="0.55" fill="none"/>
+              <path d="M88,87 Q100,114 108,196" stroke="#C0B8B8" stroke-width="0.55" fill="none"/>
+              <path d="M92,92 Q106,118 114,196" stroke="#C0B8B8" stroke-width="0.6" fill="none"/>
+              <path d="M38,150 Q80,140 122,150" stroke="#C0B8B8" stroke-width="0.6" stroke-dasharray="2,3"/>
+            </svg>
+          </div>
+          <p style="font-size:13px;color:var(--dark);">C 드레스샵</p>
+          <p style="font-size:11px;color:var(--gray);margin:3px 0 8px;">No.12 · 볼가운 · 화려</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;"><span style="color:var(--rose);font-size:11px;">★★☆☆☆</span><span style="font-size:10px;color:var(--gray);background:var(--cream);padding:2px 7px;border-radius:100px;">🙅 패스</span></div>
+        </div>
+
+        <div style="min-width:158px;background:var(--cream);border-radius:18px;padding:13px;border:2px dashed rgba(201,148,122,.3);flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;" onclick="alert('실제 앱에서 새 드레스 카드를 추가하세요!')">
+          <span style="font-size:28px;color:rgba(201,148,122,.4);">+</span>
+          <p style="font-size:12px;color:var(--gray);text-align:center;line-height:1.5;">다음 드레스샵<br>기록 추가</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 그날의 기록 -->
+<section style="padding:100px 24px;background:linear-gradient(180deg,#F5F0FA 0%,var(--warm) 100%);">
+  <div style="max-width:700px;margin:0 auto;">
+    <p class="sl" style="color:#9070A8;">그날의 기록</p>
+    <h2 class="st" style="margin-bottom:13px;">우리의 사진, 메모, 추억</h2>
+    <p class="sd" style="margin-bottom:48px;">드레스 피팅날의 설렘, 예식장 계약날의 긴장감.<br>그 순간의 감정을 사진과 함께 날짜별로 기록해두세요.</p>
+    <div style="background:#fff;border-radius:28px;padding:30px;box-shadow:0 16px 60px rgba(107,79,58,.08);border:1px solid rgba(160,140,210,.2);">
+      <!-- 타임라인 아이템 1 -->
+      <div style="display:flex;gap:18px;padding-bottom:26px;">
+        <div style="display:flex;flex-direction:column;align-items:center;width:42px;flex-shrink:0;">
+          <div style="width:11px;height:11px;border-radius:50%;background:#D0C0EA;border:2px solid #8870A8;margin-top:5px;"></div>
+          <div style="width:1px;flex:1;background:#EDE6F6;margin-top:6px;"></div>
+          <p style="font-size:10px;color:#A090B8;margin-top:5px;white-space:nowrap;">3/12</p>
+        </div>
+        <div style="flex:1;">
+          <span style="display:inline-flex;align-items:center;gap:5px;background:#F3EEF8;padding:3px 11px;border-radius:100px;font-size:11px;color:#8870A8;margin-bottom:8px;">💍 예식장 계약</span>
+          <p style="font-size:14px;color:var(--dark);line-height:1.7;margin-bottom:10px;">드디어 날짜가 정해졌어! 긴장되기도 하고 설레기도 해 🥺</p>
+          <div style="display:flex;gap:7px;">
+            <div style="width:68px;height:68px;border-radius:10px;background:linear-gradient(135deg,#EAE4F4,#DED6F0);display:flex;align-items:center;justify-content:center;font-size:24px;">🏛</div>
+            <div style="width:68px;height:68px;border-radius:10px;background:linear-gradient(135deg,#F0EDE8,#E8E0D8);display:flex;align-items:center;justify-content:center;font-size:24px;">🥂</div>
+            <div style="width:68px;height:68px;border-radius:10px;background:linear-gradient(135deg,#EEF0E8,#E6EAD8);display:flex;align-items:center;justify-content:center;font-size:24px;">📜</div>
+          </div>
+        </div>
+      </div>
+      <!-- 타임라인 아이템 2 -->
+      <div style="display:flex;gap:18px;padding-bottom:26px;">
+        <div style="display:flex;flex-direction:column;align-items:center;width:42px;flex-shrink:0;">
+          <div style="width:11px;height:11px;border-radius:50%;background:#D0C0EA;border:2px solid #8870A8;margin-top:5px;"></div>
+          <div style="width:1px;flex:1;background:#EDE6F6;margin-top:6px;"></div>
+          <p style="font-size:10px;color:#A090B8;margin-top:5px;white-space:nowrap;">3/18</p>
+        </div>
+        <div style="flex:1;">
+          <span style="display:inline-flex;align-items:center;gap:5px;background:#F3EEF8;padding:3px 11px;border-radius:100px;font-size:11px;color:#8870A8;margin-bottom:8px;">👗 드레스 투어</span>
+          <p style="font-size:14px;color:var(--dark);line-height:1.7;margin-bottom:10px;">샵 3곳 다녀왔어. A샵 No.3이 제일 마음에 들었어! 스케치 카드로 저장해뒀음 💕</p>
+          <div style="background:#F7F3FC;border-radius:12px;padding:12px;border:1px solid rgba(160,140,210,.2);display:flex;align-items:center;gap:10px;">
+            <span style="font-size:17px;">✏️</span>
+            <div>
+              <p style="font-size:12px;color:#8870A8;">드레스 스케치 카드 3장 저장됨</p>
+              <p style="font-size:11px;color:#B0A0C8;margin-top:1px;">A샵 ★★★★☆ · B샵 ★★★☆☆ · C샵 ★★☆☆☆</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 추가 버튼 -->
+      <div style="display:flex;gap:18px;">
+        <div style="display:flex;flex-direction:column;align-items:center;width:42px;flex-shrink:0;">
+          <div style="width:11px;height:11px;border-radius:50%;background:#8870A8;border:2px solid #6050A0;margin-top:5px;"></div>
+          <p style="font-size:10px;color:#A090B8;margin-top:5px;white-space:nowrap;">오늘</p>
+        </div>
+        <div>
+          <span style="display:inline-flex;align-items:center;gap:6px;background:#F9F6FD;padding:5px 14px;border-radius:100px;font-size:11px;color:#B0A0C8;border:1px dashed rgba(160,140,210,.4);cursor:pointer;">📷 오늘의 기록 추가하기</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section style="padding:100px 24px;background:var(--dark);text-align:center;">
+  <p class="sl" style="color:var(--rl);">Pricing</p>
+  <h2 class="st" style="color:var(--cream);">3,000만원짜리 결혼 준비</h2>
+  <p class="sd" style="color:var(--gray);margin-bottom:52px;">만원도 안 되는 돈으로 실수 없이</p>
+  <div style="max-width:378px;margin:0 auto;background:rgba(255,255,255,.05);border:1px solid rgba(201,148,122,.3);border-radius:28px;padding:42px 34px;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--rl));"></div>
+    <span style="display:inline-block;background:var(--rose);color:#fff;font-size:10px;padding:3px 14px;border-radius:100px;margin-bottom:22px;">PREMIUM</span>
+    <div style="font-family:'DM Serif Display',serif;font-size:60px;color:var(--cream);line-height:1;margin-bottom:6px;">9,900</div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:30px;">원 / 월 · 커플 2인 함께 사용</p>
+    <ul style="list-style:none;text-align:left;display:flex;flex-direction:column;gap:11px;margin-bottom:34px;">
+      <li style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(250,247,242,.85);font-weight:300;"><span style="width:17px;height:17px;background:rgba(201,148,122,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--rl);flex-shrink:0;">✓</span>커플 공유 견적 보드</li>
+      <li style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(250,247,242,.85);font-weight:300;"><span style="width:17px;height:17px;background:rgba(160,140,200,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:#C0B0D8;flex-shrink:0;">✓</span>🌸 그날의 기록 (사진 + 감정 타임라인)</li>
+      <li style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(250,247,242,.85);font-weight:300;"><span style="width:17px;height:17px;background:rgba(201,148,122,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--rl);flex-shrink:0;">✓</span>PDF/PPT 시안 파일 공유</li>
+      <li style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(250,247,242,.85);font-weight:300;"><span style="width:17px;height:17px;background:rgba(201,148,122,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--rl);flex-shrink:0;">✓</span>✏️ 드레스 스케치 카드</li>
+      <li style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(250,247,242,.85);font-weight:300;"><span style="width:17px;height:17px;background:rgba(201,148,122,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--rl);flex-shrink:0;">✓</span>스마트 체크리스트</li>
+    </ul>
+    <button onclick="document.getElementById('cta1').scrollIntoView({behavior:'smooth'})" style="width:100%;background:var(--rose);color:#fff;border:none;padding:16px;border-radius:14px;font-size:14px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;">출시 알림 신청하기 →</button>
+    <p style="margin-top:13px;font-size:11px;color:var(--gray);">출시 전 신청자에게 3개월 무료 제공 예정</p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section style="padding:100px 24px;max-width:860px;margin:0 auto;">
+  <p class="sl">베타 사용자 후기</p>
+  <h2 class="st" style="margin-bottom:46px;">먼저 써본 커플들의 이야기</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:17px;">
+    <div style="background:#fff;border-radius:18px;padding:24px;border:1px solid rgba(201,148,122,.12);">
+      <p style="font-size:13px;color:var(--rose);margin-bottom:11px;">★★★★★</p>
+      <p style="font-family:'Noto Serif KR',serif;font-size:14px;color:var(--dark);line-height:1.8;margin-bottom:16px;font-weight:300;">"드레스샵에서 사진 못 찍게 해서 항상 답답했는데 패션 일러스트에 직접 그리고 바로 공유했어요. 남자친구도 바로 의견 줬어요!"</p>
+      <p style="font-size:12px;color:var(--gray);">서울 거주 예비신부, 27세</p>
+    </div>
+    <div style="background:#fff;border-radius:18px;padding:24px;border:1px solid rgba(201,148,122,.12);">
+      <p style="font-size:13px;color:var(--rose);margin-bottom:11px;">★★★★★</p>
+      <p style="font-family:'Noto Serif KR',serif;font-size:14px;color:var(--dark);line-height:1.8;margin-bottom:16px;font-weight:300;">"그날의 기록 기능이 너무 좋아요. 결혼 준비 과정이 다 남아있으니까 나중에 보면 눈물날 것 같아요 😭"</p>
+      <p style="font-size:12px;color:var(--gray);">경기도 거주 예비신부, 29세</p>
+    </div>
+    <div style="background:#fff;border-radius:18px;padding:24px;border:1px solid rgba(201,148,122,.12);">
+      <p style="font-size:13px;color:var(--rose);margin-bottom:11px;">★★★★☆</p>
+      <p style="font-family:'Noto Serif KR',serif;font-size:14px;color:var(--dark);line-height:1.8;margin-bottom:16px;font-weight:300;">"견적 비교 기능 너무 필요했어요. 남자친구랑 같은 화면 보면서 얘기하니까 싸움이 줄었어요 😂"</p>
+      <p style="font-size:12px;color:var(--gray);">부산 거주 예비신부, 31세</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding:100px 24px;text-align:center;background:var(--warm);">
+  <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(28px,5vw,48px);color:var(--dark);margin-bottom:13px;">결혼 준비의 <em style="font-style:italic;color:var(--rose);">모든 순간</em>을</h2>
+  <p style="font-family:'Noto Serif KR',serif;font-size:clamp(16px,3vw,26px);color:var(--brown);font-weight:300;margin-bottom:42px;">둘이서, 함께 기록하세요</p>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:13px;">
+    <div class="ef">
+      <input class="ei" type="email" placeholder="이메일 주소" id="e2">
+      <button class="eb" onclick="signup('e2','sm2')">출시 알림받기 →</button>
+    </div>
+    <p class="hn">스팸 없음 · 언제든 취소 가능</p>
+    <p class="sm" id="sm2">💌 감사합니다!</p>
+  </div>
+</section>
+
+<footer style="padding:42px 24px;text-align:center;border-top:1px solid rgba(201,148,122,.15);">
+  <div style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--brown);margin-bottom:9px;">우리 준비중 💍</div>
+  <p style="font-size:12px;color:var(--gray);font-weight:300;">© 2026 우리 준비중 · 결혼 준비 커플을 위한 공유 앱</p>
+</footer>
+
+<script>
+// ===== CANVAS =====
+const wrap = document.getElementById('cWrap');
+const illust = document.getElementById('illust');
+const dc = document.getElementById('dc');
+const ctx = dc.getContext('2d');
+let painting=false, penClr='#2C1F14', erasing=false, hist=[], curT='aline';
+
+function resizeDC(){
+  const r=wrap.getBoundingClientRect(), dpr=window.devicePixelRatio||1;
+  const svgH = r.width * 540/600;
+  dc.width=Math.round(r.width*dpr); dc.height=Math.round(svgH*dpr);
+  dc.style.width=r.width+'px'; dc.style.height=svgH+'px';
+  illust.style.height=svgH+'px';
+}
+resizeDC();
+window.addEventListener('resize',()=>{const saved=ctx.getImageData(0,0,dc.width,dc.height);resizeDC();ctx.putImageData(saved,0,0);});
+
+function gP(e){
+  const r=dc.getBoundingClientRect(), dpr=window.devicePixelRatio||1;
+  const sx=dc.width/r.width, sy=dc.height/r.height;
+  if(e.touches) return{x:(e.touches[0].clientX-r.left)*sx,y:(e.touches[0].clientY-r.top)*sy};
+  return{x:(e.clientX-r.left)*sx,y:(e.clientY-r.top)*sy};
+}
+function sD(e){e.preventDefault();painting=true;hist.push(ctx.getImageData(0,0,dc.width,dc.height));const p=gP(e);ctx.beginPath();ctx.moveTo(p.x,p.y);}
+function dD(e){
+  if(!painting)return;e.preventDefault();
+  const p=gP(e),sz=parseInt(document.getElementById('bsz').value)*(window.devicePixelRatio||1);
+  ctx.lineWidth=erasing?sz*5:sz; ctx.lineCap='round'; ctx.lineJoin='round';
+  ctx.globalCompositeOperation=erasing?'destination-out':'source-over';
+  ctx.strokeStyle=erasing?'rgba(0,0,0,1)':penClr;
+  ctx.lineTo(p.x,p.y);ctx.stroke();ctx.beginPath();ctx.moveTo(p.x,p.y);
+}
+function eD(e){if(e)e.preventDefault();painting=false;ctx.beginPath();ctx.globalCompositeOperation='source-over';}
+dc.addEventListener('mousedown',sD);dc.addEventListener('mousemove',dD);dc.addEventListener('mouseup',eD);dc.addEventListener('mouseleave',eD);
+dc.addEventListener('touchstart',sD,{passive:false});dc.addEventListener('touchmove',dD,{passive:false});dc.addEventListener('touchend',eD,{passive:false});
+
+// ===== SVG 템플릿 스위칭 =====
+const TMPL={
+  aline:{
+    fl:"M118,178 Q95,222 66,308 Q44,372 28,520",
+    fr:"M178,178 Q201,222 230,308 Q252,372 268,520",
+    fb:"M28,520 L268,520",
+    folds_f:["M124,186 Q103,244 78,334 Q59,402 44,520","M130,182 Q111,240 88,330 Q71,398 58,520","M136,180 Q119,238 98,328 Q83,396 70,520","M148,179 L148,520","M160,180 Q177,238 198,328 Q213,396 226,520","M166,182 Q185,240 208,330 Q225,398 238,520","M172,186 Q193,244 218,334 Q237,402 252,520"],
+    bl:"M420,178 Q397,222 368,308 Q346,372 330,520",
+    br:"M480,178 Q503,222 532,308 Q554,372 570,520",
+    bb:"M330,520 L570,520",
+    extra_b:"M330,520 Q384,534 430,528 M570,520 Q532,534 510,528",
+    folds_b:["M426,186 Q405,244 380,334 Q361,402 346,520","M432,182 Q413,240 390,330 Q373,398 360,520","M438,180 Q421,238 400,328 Q385,396 372,520","M450,179 L450,520","M462,180 Q479,238 500,328 Q515,396 528,520","M468,182 Q487,240 510,330 Q527,398 540,520","M474,186 Q495,244 520,334 Q539,402 554,520"]
+  },
+  mermaid:{
+    fl:"M118,178 Q107,224 109,292 Q110,318 114,334 Q76,378 56,520",
+    fr:"M178,178 Q189,224 187,292 Q186,318 182,334 Q220,378 240,520",
+    fb:"M56,520 L240,520",
+    folds_f:["M122,186 Q112,246 113,298 Q114,324 118,340 Q88,378 68,520","M130,182 Q122,242 122,288 Q122,312 120,328 Q100,364 88,520","M140,180 Q134,240 134,284 Q134,308 132,324 Q120,358 112,520","M156,180 Q162,240 162,284 Q162,308 164,324 Q176,358 184,520","M166,182 Q174,242 174,288 Q174,312 176,328 Q196,364 208,520","M174,186 Q184,246 183,298 Q182,324 178,340 Q208,378 228,520"],
+    bl:"M420,178 Q409,224 411,292 Q412,318 416,334 Q378,378 358,520",
+    br:"M480,178 Q491,224 489,292 Q488,318 484,334 Q522,378 542,520",
+    bb:"M358,520 L542,520",
+    extra_b:"M330,520 Q360,532 390,528 M570,520 Q540,532 510,528",
+    folds_b:["M424,186 Q414,246 415,298 Q416,324 420,340 Q390,378 370,520","M432,182 Q424,242 424,288 Q424,312 422,328 Q402,364 390,520","M442,180 Q436,240 436,284 Q436,308 434,324 Q422,358 414,520","M458,180 Q464,240 464,284 Q464,308 466,324 Q478,358 486,520","M468,182 Q476,242 476,288 Q476,312 478,328 Q498,364 510,520","M476,186 Q486,246 485,298 Q484,324 480,340 Q510,378 530,520"],
+    extra_f:"M107,286 L189,286 M110,316 L186,316",
+    extra_b2:"M409,286 L489,286 M412,316 L486,316"
+  },
+  ball:{
+    fl:"M118,178 Q92,202 70,244 Q38,298 22,386 Q14,444 18,520",
+    fr:"M178,178 Q204,202 226,244 Q258,298 274,386 Q282,444 278,520",
+    fb:"M18,520 L278,520",
+    folds_f:["M122,180 Q98,208 78,252 Q48,308 32,398 Q24,456 26,520","M128,178 Q106,206 88,248 Q60,304 44,394 Q36,452 38,520","M136,178 Q116,204 100,244 Q74,298 60,388 Q52,446 54,520","M148,178 Q148,230 148,318 Q148,394 148,520","M160,178 Q180,204 196,244 Q222,298 236,388 Q244,446 242,520","M168,178 Q190,206 208,248 Q236,304 252,394 Q260,452 258,520","M174,180 Q198,208 218,252 Q248,308 264,398 Q272,456 270,520"],
+    bl:"M420,178 Q394,202 372,244 Q340,298 324,386 Q316,444 320,520",
+    br:"M480,178 Q506,202 528,244 Q560,298 576,386 Q584,444 580,520",
+    bb:"M320,520 L580,520",
+    extra_b:"",
+    folds_b:["M424,180 Q400,208 380,252 Q350,308 334,398 Q326,456 328,520","M430,178 Q408,206 390,248 Q362,304 346,394 Q338,452 340,520","M438,178 Q418,204 402,244 Q376,298 362,388 Q354,446 356,520","M450,178 Q450,230 450,318 Q450,394 450,520","M462,178 Q482,204 498,244 Q524,298 538,388 Q546,446 544,520","M470,178 Q492,206 510,248 Q538,304 554,394 Q562,452 560,520","M476,180 Q500,208 520,252 Q550,308 566,398 Q574,456 572,520"],
+    extra_f:"M22,370 Q148,350 278,370",
+    extra_b2:"M324,370 Q450,350 576,370"
+  },
+  slim:{
+    fl:"M118,178 Q115,260 116,360 L114,520",
+    fr:"M178,178 Q181,260 180,360 L182,520",
+    fb:"M114,520 L182,520",
+    folds_f:["M122,186 Q119,268 120,368 L118,520","M128,182 Q125,264 126,364 L124,520","M136,180 Q133,262 134,362 L132,520","M148,179 L148,520","M160,180 Q163,262 162,362 L164,520","M168,182 Q171,264 170,364 L172,520","M174,186 Q177,268 176,368 L178,520"],
+    bl:"M420,178 Q417,260 418,360 L416,520",
+    br:"M480,178 Q483,260 482,360 L484,520",
+    bb:"M416,520 L484,520",
+    extra_b:"M416,448 Q376,474 336,490 M484,448 Q506,474 534,490",
+    folds_b:["M424,186 Q421,268 422,368 L420,520","M430,182 Q427,264 428,364 L426,520","M438,180 Q435,262 436,362 L434,520","M450,179 L450,520","M462,180 Q465,262 464,362 L466,520","M470,182 Q473,264 472,364 L474,520","M476,186 Q479,268 478,368 L480,520"],
+    extra_f:"M116,264 L180,264",
+    extra_b2:"M418,264 L482,264"
+  }
+};
+
+function updateTemplate(name){
+  const svg=document.getElementById('illust');
+  svg.querySelectorAll('.tp').forEach(e=>e.remove());
+  const d=TMPL[name];
+  function p(dStr,stroke,sw,dash){
+    if(!dStr)return;
+    dStr.split(' M').filter(Boolean).forEach((s,i)=>{
+      const el=document.createElementNS('http://www.w3.org/2000/svg','path');
+      el.setAttribute('d',(i>0?'M':'')+s);
+      el.setAttribute('fill','none');el.setAttribute('stroke',stroke);el.setAttribute('stroke-width',sw);
+      el.setAttribute('class','tp');if(dash)el.setAttribute('stroke-dasharray',dash);
+      svg.appendChild(el);
+    });
+  }
+  // front
+  p(d.fl,'#2C1F14',1.3);p(d.fr,'#2C1F14',1.3);p(d.fb,'#2C1F14',1);
+  if(d.folds_f)d.folds_f.forEach(s=>p(s,'#C0A898',.68));
+  if(d.extra_f)p(d.extra_f,'#A89888',.8,'3,4');
+  // back
+  p(d.bl,'#2C1F14',1.3);p(d.br,'#2C1F14',1.3);p(d.bb,'#2C1F14',1);
+  if(d.folds_b)d.folds_b.forEach(s=>p(s,'#C0A898',.68));
+  if(d.extra_b)p(d.extra_b,'#2C1F14',.9);
+  if(d.extra_b2)p(d.extra_b2,'#A89888',.8,'3,4');
+}
+updateTemplate('aline');
+
+function selTmpl(btn,name){
+  curT=name;
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  hist=[];ctx.clearRect(0,0,dc.width,dc.height);
+  updateTemplate(name);
+}
+function setC(btn,c){penClr=c;erasing=false;document.querySelectorAll('.cb').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
+function setErase(btn){erasing=true;document.querySelectorAll('.cb').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
+function undoDraw(){if(hist.length>0){ctx.clearRect(0,0,dc.width,dc.height);ctx.putImageData(hist.pop(),0,0);}}
+function clrCanvas(){hist.push(ctx.getImageData(0,0,dc.width,dc.height));ctx.clearRect(0,0,dc.width,dc.height);}
+function saveSk(){const s=document.getElementById('shopN').value||'이름 없음';const d=document.getElementById('dressN').value||'—';alert(`✅ "${s} · ${d}" 저장 완료!\n파트너에게 실시간 공유됩니다 💌`);}
+
+// ===== 태그 =====
+function mkTags(id,items){
+  const el=document.getElementById(id);
+  items.forEach(t=>{const b=document.createElement('button');b.textContent=t;b.className='chip';b.onclick=()=>b.classList.toggle('on');el.appendChild(b);});
+}
+mkTags('mA',['청순','세련','고급','화려','사랑스러운']);
+mkTags('matA',['비즈','실크','쉬폰','레이스','오간자']);
+mkTags('colA',['화이트','아이보리','피치','기타']);
+mkTags('lineA',['A라인','볼가운','머메이드','슬림라인']);
+
+// ===== 별점 =====
+const RI=['착용감','피팅감','가격','소재','수선 가능성'],ratings={};
+const ra=document.getElementById('rA');
+RI.forEach(label=>{
+  ratings[label]=0;
+  const row=document.createElement('div');row.className='rrow';
+  row.innerHTML=`<span style="font-size:11px;color:var(--brown);min-width:66px;">${label}</span><div style="display:flex;gap:2px;">${[1,2,3,4,5].map(i=>`<button class="starb" data-l="${label}" data-v="${i}" onclick="setR('${label}',${i})">★</button>`).join('')}</div>`;
+  ra.appendChild(row);
+});
+function setR(l,v){ratings[l]=v;document.querySelectorAll(`.starb[data-l="${l}"]`).forEach(b=>b.classList.toggle('on',+b.dataset.v<=v));const vs=Object.values(ratings).filter(x=>x>0);document.getElementById('tot').textContent=vs.length?(vs.reduce((a,b)=>a+b,0)/vs.length).toFixed(1):'—';}
+function setRv(btn){document.querySelectorAll('.rb').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
+function signup(inp,msg){
+  const v=document.getElementById(inp).value;
+  if(!v||!v.includes('@')){alert('올바른 이메일을 입력해주세요.');return;}
+  // ── Google Sheets 연동 (Apps Script 배포 URL 넣기) ──
+  const SHEET_URL=''; // TODO: Apps Script URL
+  if(SHEET_URL){fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:v,ts:new Date().toISOString(),src:'landing'})}).catch(()=>{});}
+  document.getElementById(inp).closest('.ef').style.display='none';
+  document.getElementById(msg).classList.add('on');
+}
+
+// ===== 스크롤 =====
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.08});
+document.querySelectorAll('.fc,.pi,.sc').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity .55s ease,transform .55s ease';ob.observe(el);});
+</script>
+</body>
+</html>
